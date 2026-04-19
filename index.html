@@ -11,13 +11,18 @@
   </body>
 </html>
 <script>
-function handleSubmit() {
-  // If you have a form submit, it will run normally
-  // then scroll to top
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // select ALL buttons and links in footer (or bottom area)
+  const footerButtons = document.querySelectorAll("footer button, footer a");
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+  footerButtons.forEach(el => {
+    el.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
   });
-}
+});
 </script>
