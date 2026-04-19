@@ -9,20 +9,16 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
-</html>
 <script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  // select ALL buttons and links in footer (or bottom area)
-  const footerButtons = document.querySelectorAll("footer button, footer a");
+document.addEventListener("click", function (e) {
+  const target = e.target;
 
-  footerButtons.forEach(el => {
-    el.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+  // only trigger if it's a button or link
+  if (target.tagName === "BUTTON" || target.tagName === "A") {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
     });
-  });
+  }
 });
 </script>
