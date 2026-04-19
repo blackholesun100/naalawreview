@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@utility vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+@theme {
+  --font-serif: "EB Garamond", serif;
+  --font-sans: "Montserrat", sans-serif;
+  
+  --color-primary: #00122E;
+  --color-primary-container: #002147;
+  --color-accent: #1D4ED8;
+  --color-surface: #FFFFFF;
+  --color-surface-container: #F8FAFC;
+  --color-on-surface-variant: #64748B;
+  --color-outline: #E2E8F0;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-primary font-serif selection:bg-slate-200 antialiased tracking-wide overflow-x-hidden;
+  }
+  
+  a, button {
+    @apply transition-all duration-300;
+  }
+}
+
+.academic-bg {
+  background-color: #ffffff;
+  background-image: 
+    radial-gradient(circle, #f1f5f9 1.5px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.pattern-cross {
+  background-image: radial-gradient(#CBD5E1 1px, transparent 0.5px);
+  background-size: 30px 30px;
+  background-position: center;
+}
+
+.plus-pattern {
+  background-color: #f8fafc;
+  background-image:  linear-gradient(#f1f5f9 2px, transparent 2px), linear-gradient(90deg, #f1f5f9 2px, transparent 2px);
+  background-size: 40px 40px;
+  background-position: -1px -1px;
+}
+
