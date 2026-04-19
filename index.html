@@ -8,17 +8,20 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-  </body>
-<script>
-document.addEventListener("click", function (e) {
-  const target = e.target;
+    <script>
+window.addEventListener("load", function () {
+  document.body.addEventListener("click", function (e) {
+    const el = e.target;
 
-  // only trigger if it's a button or link
-  if (target.tagName === "BUTTON" || target.tagName === "A") {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }
+    // catches buttons, links, and elements inside them
+    if (el.closest("button, a")) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  });
 });
 </script>
+  </body>
+
