@@ -57,7 +57,7 @@ const translations: Translations = {
   browseArchive: { en: 'Browse Archive', az: 'Arxivə Bax' },
   submitForPeerReview: { en: 'Submit for Peer Review', az: 'Rəy üçün Təqdim et' },
   manuscriptInstructions: { en: 'Manuscript Instructions', az: 'Əlyazma Təlimatları' },
-  submitDescription: { en: 'The NAA Law Review invites submissions from practitioners, academics, and students specializing in the evolving field of aerospace jurisprudence.', az: 'MAA Hüquq Jurnalı aerokosmik hüquq elminin inkişaf edən sahəsində ixtisaslaşan praktikləri, akademikləri və tələbələri əlyazmalarını təqdim etməyə dəvət edir.' },
+  submitDescription: { en: 'The NAA Law Review invites submissions from practitioners, academics, and students specializing in the evolving field of law', az: 'MAA Hüquq Jurnalı hüquq elminin inkişaf edən sahəsində ixtisaslaşan praktikləri, akademikləri və tələbələri əlyazmalarını təqdim etməyə dəvət edir.' },
 
   // Archive
   journalArchive: { en: 'Journal Archive', az: 'Jurnal Arxivi' },
@@ -70,6 +70,10 @@ const translations: Translations = {
   portalTitle: { en: 'The Portal for Legal Inquiry', az: 'Hüquqi Araşdırma Portalı' },
   submitWelcome: { en: 'The National Aviation Academy Law Review welcomes original manuscripts that explore the intersection of criminal law, commercial law and many more.', az: 'Milli Aviasiya Akademiyasının Hüquq Jurnalı cinayət hüququ, kommersiya hüququ və daha bir çox sahənin kəsişməsini araşdıran orijinal əlyazmaları salamlayır.' },
   submissionGuidelines: { en: 'Submission Guidelines', az: 'Təqdimat Qaydaları' },
+  submissionSuccessful: { en: 'Submission Successful', az: 'Təqdimat Uğurludur' },
+  confirmationNumber: { en: 'Confirmation Number', az: 'Təsdiq nömrəsi' },
+  goToHome: { en: 'Return to Homepage', az: 'Ana səhifəyə qayıt' },
+  submitAnother: { en: 'Submit Another Manuscript', az: 'Başqa bir əlyazma təqdim et' },
   formalizeSubmission: { en: 'Formalize Submission', az: 'Təqdimatı Rəsmiləşdir' },
   attachManuscript: { en: 'Attach Manuscript', az: 'Əlyazmanı Qoşun' },
   abstractLabel: { en: 'Abstract / Brief Summary', az: 'Abstrakt / Qısa Xülasə' },

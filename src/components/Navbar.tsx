@@ -278,14 +278,15 @@ export default function Navbar() {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder={t('searchPlaceholder')}
-                    className="w-full bg-white border border-slate-200 pl-12 pr-4 py-3 font-serif italic text-lg focus:outline-none focus:border-[#6495ED] focus:ring-1 focus:ring-[#6495ED]/20 shadow-inner transition-all"
+                    className="w-full bg-white border border-slate-200 pl-12 pr-12 py-4 font-serif text-lg focus:outline-none focus:border-[#6495ED] focus:ring-4 focus:ring-[#6495ED]/10 shadow-sm transition-all rounded-none"
                   />
                   {searchQuery && (
                     <button 
                       onClick={() => setSearchQuery('')}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-slate-300 hover:text-[#6495ED] hover:bg-slate-50 transition-all rounded-full group"
+                      title="Clear search"
                     >
-                      <X className="w-4 h-4" />
+                      <X className="w-5 h-5 group-hover:scale-110 transition-transform" />
                     </button>
                   )}
                 </div>

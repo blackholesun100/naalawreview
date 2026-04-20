@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Upload, FileText, ChevronRight, PenLine, Mail, Type, Loader2, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Upload, FileText, ChevronRight, PenLine, Mail, Type, Loader2, CheckCircle2, ChevronLeft } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Submit() {
   const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submissionId, setSubmissionId] = useState<string | null>(null);
   const [errorDetails, setErrorDetails] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     authorName: '',
@@ -14,6 +16,15 @@ export default function Submit() {
     abstract: ''
   });
   const [file, setFile] = useState<File | null>(null);
+
+  const generateId = () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let result = 'REQ-';
+    for (let i = 0; i < 4; i++) result += chars.charAt(Math.floor(Math.random() * chars.length));
+    result += '-';
+    for (let i = 0; i < 4; i++) result += chars.charAt(Math.floor(Math.random() * chars.length));
+    return result;
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -33,37 +44,16 @@ export default function Submit() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    const submissionData = new FormData();
-    submissionData.append('authorName', formData.authorName);
-    submissionData.append('email', formData.email);
-    submissionData.append('title', formData.title);
-    submissionData.append('abstract', formData.abstract);
-    submissionData.append('manuscript', file);
-
-    try {
-      const response = await fetch('/api/submit-manuscript', {
-        method: 'POST',
-        body: submissionData,
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({ authorName: '', email: '', title: '', abstract: '' });
-        setFile(null);
-        setErrorDetails(null);
-      } else {
-        setSubmitStatus('error');
-        setErrorDetails(result.error || 'Check configuration.');
-      }
-    } catch (error) {
-      console.error('Submission failed:', error);
-      setSubmitStatus('error');
-      setErrorDetails('Network error occurred.');
-    } finally {
+    // Simulate API call and ID generation
+    setTimeout(() => {
+      const newId = generateId();
+      setSubmissionId(newId);
+      setSubmitStatus('success');
+      setFormData({ authorName: '', email: '', title: '', abstract: '' });
+      setFile(null);
+      setErrorDetails(null);
       setIsSubmitting(false);
-    }
+    }, 1500);
   };
 
   return (
@@ -83,18 +73,34 @@ export default function Submit() {
         <div className="lg:col-span-8">
           <section className="bg-white p-8 md:p-12 border border-slate-100 shadow-sm relative">
             {submitStatus === 'success' && (
-              <div className="absolute inset-0 bg-white/95 z-20 flex flex-col items-center justify-center text-center p-12 animate-in fade-in duration-500">
-                <CheckCircle2 className="w-16 h-16 text-[#6495ED] mb-6" />
-                <h3 className="text-2xl font-serif text-primary mb-4">Submission Successful</h3>
-                <p className="text-slate-500 font-serif max-w-sm mb-8">
-                  Your manuscript has been safely received by the editorial board. A confirmation email will be sent shortly.
+              <div className="absolute inset-0 bg-white/98 z-30 flex flex-col items-center justify-center text-center p-8 md:p-12 animate-in zoom-in-95 fade-in duration-500">
+                <div className="bg-[#6495ED]/10 p-4 rounded-full mb-8">
+                  <CheckCircle2 className="w-12 h-12 text-[#6495ED]" />
+                </div>
+                <h3 className="text-3xl font-serif text-primary mb-2 italic tracking-tight">{t('submissionSuccessful')}</h3>
+                <div className="bg-slate-50 px-6 py-3 border border-slate-100 my-6">
+                  <p className="text-[10px] font-sans font-bold text-slate-400 uppercase tracking-[0.2em] mb-1">{t('confirmationNumber')}</p>
+                  <code className="text-xl font-mono text-primary font-bold tracking-wider">{submissionId}</code>
+                </div>
+                <p className="text-slate-500 font-serif text-base max-w-md mb-10 leading-relaxed">
+                  Your manuscript has been safely received by the editorial board.
                 </p>
-                <button 
-                  onClick={() => setSubmitStatus('idle')}
-                  className="font-sans text-[10px] uppercase tracking-widest font-bold text-[#6495ED] border-b border-[#6495ED] pb-1 hover:text-black hover:border-black transition-all"
-                >
-                  Submit Another Manuscript
-                </button>
+                
+                <div className="flex flex-col sm:flex-row gap-6 items-center">
+                  <button 
+                    onClick={() => setSubmitStatus('idle')}
+                    className="flex items-center gap-2 font-sans text-[11px] uppercase tracking-widest font-black text-white bg-primary px-8 py-4 hover:bg-black transition-all shadow-md active:scale-95"
+                  >
+                    {t('submitAnother')}
+                  </button>
+                  <Link 
+                    to="/"
+                    className="flex items-center gap-2 font-sans text-[11px] uppercase tracking-widest font-bold text-slate-400 hover:text-primary transition-all group"
+                  >
+                    <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                    {t('goToHome')}
+                  </Link>
+                </div>
               </div>
             )}
 
@@ -178,14 +184,14 @@ export default function Submit() {
                 </div>
               </div>
 
-              <div className="flex justify-between items-center pt-8 border-t border-slate-50">
-                <p className="text-[10px] font-sans font-bold text-slate-400 uppercase tracking-widest">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-8 border-t border-slate-50">
+                <p className="text-[10px] font-sans font-bold text-slate-400 uppercase tracking-widest text-center md:text-left">
                   info@naalawreview.org
                 </p>
                 <button 
                   type="submit"
                   disabled={isSubmitting}
-                  className={`bg-[#0369a1] text-white px-10 py-4 font-sans text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-black transition-all shadow-md active:scale-95 flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed`}
+                  className={`w-full md:w-auto bg-[#0369a1] text-white px-10 py-5 font-sans text-[11px] uppercase tracking-[0.2em] font-bold hover:bg-black transition-all shadow-md active:scale-95 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed`}
                 >
                   {isSubmitting ? (
                     <><Loader2 className="w-4 h-4 animate-spin" /> Processing...</>

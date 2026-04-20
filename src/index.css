@@ -20,6 +20,9 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-white text-primary font-serif selection:bg-slate-200 antialiased tracking-wide overflow-x-hidden;
   }

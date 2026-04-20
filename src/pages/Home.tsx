@@ -84,7 +84,7 @@ export default function Home() {
           <HarvardArticleItem 
              category={t('review')}
              title={t('schol2')}
-             author="T. Huseynov"
+             author={t('authorName')}
              summary={t('schol2Summary')}
              link="/article"
           />

@@ -12,7 +12,6 @@ export default function ExploreByAuthor() {
 
   const authors = [
     { name: 'Talut Huseynov', letter: 'H' },
-    { name: 'T. Huseynov', letter: 'H' },
     { name: 'Sahil Zahir Huseynov', letter: 'H' },
   ];
 
