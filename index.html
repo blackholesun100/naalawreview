@@ -1,28 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <link rel="icon" type="image/png" href="blue.png">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NAA Law Review</title>
+    <title>My Google AI Studio App</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-window.addEventListener("load", function () {
-  document.body.addEventListener("click", function (e) {
-    const el = e.target;
-
-    // catches buttons, links, and elements inside them
-    if (el.closest("button, a")) {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
-  });
-});
-</script>
   </body>
+</html>
 

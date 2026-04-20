@@ -85,7 +85,7 @@ export default function AuthorArticles() {
                 </span>
               </div>
               
-              <h4 className="text-xl md:text-2xl font-serif font-bold text-primary group-hover:italic transition-all leading-tight mb-6">
+              <h4 className="text-lg md:text-xl font-serif font-bold text-primary group-hover:italic transition-all leading-tight mb-6">
                 {article.title}
               </h4>
 

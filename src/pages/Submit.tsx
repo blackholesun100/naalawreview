@@ -74,7 +74,7 @@ export default function Submit() {
           {t('portalTitle')}
         </h1>
         <div className="h-0.5 w-16 bg-[#6495ED] mb-6"></div>
-        <p className="text-base md:text-lg text-[#555] font-serif leading-relaxed italic max-w-xl">
+        <p className="text-base md:text-lg text-[#555] font-serif leading-relaxed max-w-xl">
           {t('submitWelcome')}
         </p>
       </header>
@@ -85,7 +85,7 @@ export default function Submit() {
             {submitStatus === 'success' && (
               <div className="absolute inset-0 bg-white/95 z-20 flex flex-col items-center justify-center text-center p-12 animate-in fade-in duration-500">
                 <CheckCircle2 className="w-16 h-16 text-[#6495ED] mb-6" />
-                <h3 className="text-2xl font-serif text-primary mb-4 italic">Submission Successful</h3>
+                <h3 className="text-2xl font-serif text-primary mb-4">Submission Successful</h3>
                 <p className="text-slate-500 font-serif max-w-sm mb-8">
                   Your manuscript has been safely received by the editorial board. A confirmation email will be sent shortly.
                 </p>
@@ -105,7 +105,7 @@ export default function Submit() {
                     name="authorName"
                     value={formData.authorName}
                     onChange={handleInputChange}
-                    className="w-full bg-transparent border-b border-slate-200 py-3 px-0 font-serif text-lg italic focus:border-[#6495ED] focus:ring-0 transition-all placeholder:text-slate-300" 
+                    className="w-full bg-transparent border-b border-slate-200 py-3 px-0 font-serif text-lg focus:border-[#6495ED] focus:ring-0 transition-all placeholder:text-slate-300" 
                     placeholder="Author Name" 
                     type="text"
                     required
@@ -116,7 +116,7 @@ export default function Submit() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full bg-transparent border-b border-slate-200 py-3 px-0 font-serif text-lg italic focus:border-[#6495ED] focus:ring-0 transition-all placeholder:text-slate-300" 
+                    className="w-full bg-transparent border-b border-slate-200 py-3 px-0 font-serif text-lg focus:border-[#6495ED] focus:ring-0 transition-all placeholder:text-slate-300" 
                     placeholder="institution@naa-law.org" 
                     type="email"
                     required
@@ -129,7 +129,7 @@ export default function Submit() {
                   name="title"
                   value={formData.title}
                   onChange={handleInputChange}
-                  className="w-full bg-transparent border-b border-slate-200 py-3 px-0 font-serif text-lg italic focus:border-[#6495ED] focus:ring-0 transition-all placeholder:text-slate-300" 
+                  className="w-full bg-transparent border-b border-slate-200 py-3 px-0 font-serif text-lg focus:border-[#6495ED] focus:ring-0 transition-all placeholder:text-slate-300" 
                   placeholder="Enter the full title as it should appear in citation" 
                   type="text"
                   required
@@ -141,7 +141,7 @@ export default function Submit() {
                   name="abstract"
                   value={formData.abstract}
                   onChange={handleInputChange}
-                  className="w-full bg-transparent border-b border-slate-200 py-3 px-0 font-serif text-lg italic focus:border-[#6495ED] focus:ring-0 transition-all resize-none placeholder:text-slate-300" 
+                  className="w-full bg-transparent border-b border-slate-200 py-3 px-0 font-serif text-lg focus:border-[#6495ED] focus:ring-0 transition-all resize-none placeholder:text-slate-300" 
                   placeholder="Summarize the scope and findings..." 
                   rows={4}
                   required
@@ -153,7 +153,7 @@ export default function Submit() {
                   {file ? (
                     <div className="flex flex-col items-center">
                       <FileText className="w-12 h-12 text-[#6495ED] mb-4" />
-                      <p className="text-primary font-serif italic text-lg">{file.name}</p>
+                      <p className="text-primary font-serif text-lg">{file.name}</p>
                       <button 
                         type="button"
                         onClick={(e) => { e.stopPropagation(); setFile(null); }}
@@ -166,7 +166,7 @@ export default function Submit() {
                     <>
                       <Upload className="w-8 h-8 text-slate-300 mb-4 group-hover:text-[#6495ED] transition-colors" />
                       <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#6495ED] font-bold">{t('attachManuscript')}</p>
-                      <p className="text-slate-400 mt-3 text-sm font-serif italic max-w-xs">PDF or DOCX format only.</p>
+                      <p className="text-slate-400 mt-3 text-sm font-serif max-w-xs">PDF or DOCX format only.</p>
                     </>
                   )}
                   <input 
@@ -179,7 +179,7 @@ export default function Submit() {
               </div>
 
               <div className="flex justify-between items-center pt-8 border-t border-slate-50">
-                <p className="text-[10px] font-sans font-bold text-slate-400 uppercase tracking-widest italic">
+                <p className="text-[10px] font-sans font-bold text-slate-400 uppercase tracking-widest">
                   info@naalawreview.org
                 </p>
                 <button 
@@ -222,7 +222,7 @@ export default function Submit() {
           </div>
           
           <div className="p-8 border-l border-slate-100">
-            <p className="font-serif italic text-base text-slate-400 leading-relaxed text-center">
+            <p className="font-serif text-base text-slate-400 leading-relaxed text-center">
               {t('contactInfo')}
             </p>
           </div>
@@ -250,7 +250,7 @@ function GuidelineItem({ num, title, children }: any) {
       <span className="font-sans font-black text-2xl text-primary/10 tracking-tighter">{num}</span>
       <div>
         <strong className="block text-primary font-sans text-[10px] uppercase tracking-widest mb-2 font-bold">{title}</strong>
-        <p className="text-base text-slate-500 font-serif leading-relaxed italic opacity-80">{children}</p>
+        <p className="text-base text-slate-500 font-serif leading-relaxed opacity-80">{children}</p>
       </div>
     </li>
   );

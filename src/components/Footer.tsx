@@ -43,7 +43,7 @@ export default function Footer() {
               © 2026 NAA Law Review. All Rights Reserved.
             </p>
             <p className="font-sans text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-white/40 font-semibold italic">
-      
+            
             </p>
           </div>
           <p className="font-serif italic text-sm text-white/40">

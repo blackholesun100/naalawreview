@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 type Language = 'en' | 'az';
 
@@ -182,8 +182,33 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+const detectLanguage = (): Language => {
+  // 1. Check for manual override in localStorage
+  const saved = localStorage.getItem('naalr_language');
+  if (saved === 'en' || saved === 'az') return saved as Language;
+
+  // 2. Check browser language (navigator.language)
+  const browserLang = navigator.language.toLowerCase();
+  if (browserLang.startsWith('az')) return 'az';
+
+  // 3. Geolocation via Timezone proxy (Azerbaijan is Asia/Baku)
+  try {
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (timezone === 'Asia/Baku') return 'az';
+  } catch (e) {
+    // Fallback if Intl or timezone detection fails
+  }
+
+  return 'en';
+};
+
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setInternalLanguage] = useState<Language>(detectLanguage);
+
+  const setLanguage = (lang: Language) => {
+    setInternalLanguage(lang);
+    localStorage.setItem('naalr_language', lang);
+  };
 
   const t = (key: string) => {
     return translations[key]?.[language] || key;

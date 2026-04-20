@@ -40,10 +40,10 @@ export default function StudentWriting() {
             <GraduationCap className="w-5 h-5 text-[#6495ED]" />
             <span className="text-[10px] font-sans font-black uppercase tracking-[0.2em] text-slate-400">{t('emergingScholars')}</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-serif font-bold text-primary mb-12 italic">
+          <h1 className="text-5xl md:text-6xl font-serif font-bold text-primary mb-12">
             {t('studentWriting')}
           </h1>
-          <div className="space-y-6 text-lg text-slate-600 font-serif leading-relaxed italic">
+          <div className="space-y-6 text-lg text-slate-600 font-serif leading-relaxed">
             <p>
               {t('studentMission1')}
             </p>
@@ -73,7 +73,7 @@ export default function StudentWriting() {
                 <span className="text-slate-400">{paper.year}</span>
               </div>
 
-              <h3 className="text-2xl font-serif font-bold text-primary mb-4 group-hover:italic transition-all leading-tight">
+              <h3 className="text-2xl font-serif font-bold text-primary mb-4 transition-all leading-tight">
                 {paper.title}
               </h3>
               
@@ -81,7 +81,7 @@ export default function StudentWriting() {
                 By {paper.author}
               </div>
 
-              <p className="text-slate-400 font-serif leading-relaxed mb-8 flex-1 italic">
+              <p className="text-slate-400 font-serif leading-relaxed mb-8 flex-1">
                 {paper.summary}
               </p>
 
@@ -101,7 +101,7 @@ export default function StudentWriting() {
             <GraduationCap className="w-[400px] h-[400px] text-white" />
           </div>
           <div className="relative z-10">
-            <h2 className="text-3xl font-serif font-bold text-white mb-6 italic">{t('submitYourWork')}</h2>
+            <h2 className="text-3xl font-serif font-bold text-white mb-6">{t('submitYourWork')}</h2>
             <p className="max-w-xl mx-auto text-white/60 font-serif mb-10 text-lg">
               {t('submitDescription')}
             </p>

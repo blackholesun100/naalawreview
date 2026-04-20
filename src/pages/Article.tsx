@@ -133,7 +133,7 @@ export default function Article() {
       doc.setFontSize(7);
       doc.text('©Copyright 2023 by the author(s). Licensed under Creative Commons Attribution 4.0 International License.', 105, 275, { align: 'center' });
       
-      doc.save('Huseynov_LocalGov_Azerbaijan_2023.pdf');
+      doc.save('yourfile.pdf');
     } else {
       // Talut's paper - Traditional NAA Review Style
       doc.setFontSize(8);
@@ -178,7 +178,7 @@ export default function Article() {
 
       {/* Title Section */}
       <section className="max-w-screen-lg mx-auto px-6 text-center mb-12">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#1a1a1a] mb-6 leading-tight max-w-4xl mx-auto">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[#1a1a1a] mb-6 leading-tight max-w-4xl mx-auto">
           {articleMetadata.title}
         </h1>
         <div className="font-sans font-black text-[#6495ED] text-sm tracking-[0.4em] uppercase mb-12">
@@ -193,7 +193,7 @@ export default function Article() {
           <span className="text-slate-200">/</span>
           <span>{articleMetadata.year}</span>
           <span className="text-slate-200">/</span>
-          <span className="text-slate-300 italic">{articleMetadata.volume} NAA L. REV. {articleMetadata.pages.split('-')[0]}</span>
+          <span className="text-slate-300">{articleMetadata.volume} NAA L. REV. {articleMetadata.pages.split('-')[0]}</span>
         </div>
       </section>
 
@@ -214,25 +214,6 @@ export default function Article() {
       {/* Abstract and Download Section */}
       <article className="max-w-screen-md mx-auto px-6 mb-32">
         <div className="flex flex-col items-center">
-            {/* Buttons Bar */}
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
-              {/* Single Download Button */}
-              <button 
-                  onClick={handleDownload}
-                  className="bg-[#6495ED] text-white px-10 py-4 font-sans font-black uppercase text-[11px] tracking-[0.3em] flex items-center gap-4 hover:bg-black transition-all shadow-lg active:scale-95"
-              >
-                  <FileText className="w-4 h-4" /> {t('download')}
-              </button>
-
-              {/* Cite Button */}
-              <button 
-                  onClick={() => setIsCiteModalOpen(true)}
-                  className="bg-white border border-slate-200 text-slate-500 px-10 py-4 font-sans font-black uppercase text-[11px] tracking-[0.3em] flex items-center gap-4 hover:bg-slate-50 hover:text-primary transition-all active:scale-95"
-              >
-                  <CiteIcon className="w-4 h-4 opacity-50" /> {t('citeArticle')}
-              </button>
-            </div>
-
             <div className="prose prose-slate max-w-none font-serif text-lg lg:text-[21px] leading-[1.85] text-slate-800 text-justify antialiased">
                 <div className="mb-12 p-6 bg-slate-50 border-l-4 border-[#6495ED] text-[11px] font-sans font-bold uppercase tracking-widest text-slate-500 space-y-2">
                     <p>Original Research Article</p>
@@ -250,7 +231,26 @@ export default function Article() {
                     {isSahil ? t('article2Abstract') : t('articleAbstract')}
                 </p>
 
-                <div className="mt-24 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-slate-300 border-t border-slate-100 pt-8 italic text-center md:text-left">
+                {/* Buttons Bar moved here */}
+                <div className="mt-16 flex flex-wrap items-center justify-center gap-4 mb-20">
+                  {/* Single Download Button */}
+                  <button 
+                      onClick={handleDownload}
+                      className="bg-[#6495ED] text-white px-10 py-4 font-sans font-black uppercase text-[11px] tracking-[0.3em] flex items-center gap-4 hover:bg-black transition-all shadow-lg active:scale-95"
+                  >
+                      <FileText className="w-4 h-4" /> {t('download')}
+                  </button>
+
+                  {/* Cite Button */}
+                  <button 
+                      onClick={() => setIsCiteModalOpen(true)}
+                      className="bg-white border border-slate-200 text-slate-500 px-10 py-4 font-sans font-black uppercase text-[11px] tracking-[0.3em] flex items-center gap-4 hover:bg-slate-50 hover:text-primary transition-all active:scale-95"
+                  >
+                      <CiteIcon className="w-4 h-4 opacity-50" /> {t('citeArticle')}
+                  </button>
+                </div>
+
+                <div className="mt-24 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-slate-300 border-t border-slate-100 pt-8 text-center md:text-left">
                     <div className="flex flex-wrap justify-center md:justify-start gap-4">
                         <span>{t('topics')}:</span>
                         {articleMetadata.topics.map(topic => (
@@ -309,7 +309,7 @@ export default function Article() {
                         )}
                       </button>
                     </div>
-                    <div className="p-6 bg-slate-50 border border-slate-100 font-serif italic text-lg leading-relaxed text-slate-700 select-all">
+                    <div className="p-6 bg-slate-50 border border-slate-100 font-serif text-lg leading-relaxed text-slate-700 select-all">
                       {cite.text}
                     </div>
                   </div>

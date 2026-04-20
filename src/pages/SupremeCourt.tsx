@@ -21,7 +21,7 @@ export default function SupremeCourt() {
           {t('supremeCourtSub')}
         </h1>
         <div className="h-0.5 w-16 bg-[#6495ED] mb-6"></div>
-        <p className="text-base md:text-lg text-slate-500 font-serif leading-relaxed italic max-w-2xl">
+        <p className="text-base md:text-lg text-slate-500 font-serif leading-relaxed max-w-2xl">
           Exploring the precedent-setting decisions that define the unified legal landscape of the Republic of Azerbaijan. Access to the official records of the Plenum of the Supreme Court.
         </p>
       </header>
@@ -34,10 +34,10 @@ export default function SupremeCourt() {
                 <span className="font-sans text-[9px] uppercase tracking-[0.3em] text-[#6495ED] font-bold">Resolution No. {res.no} / {res.date.split('-')[0]}</span>
                 <span className="font-sans text-[9px] uppercase tracking-[0.2em] text-slate-300 font-bold">{res.date}</span>
               </div>
-              <h3 className="text-xl md:text-2xl font-serif text-primary mb-6 font-medium leading-snug group-hover:italic transition-all uppercase">
+              <h3 className="text-xl md:text-2xl font-serif text-primary mb-6 font-medium leading-snug transition-all uppercase">
                 {res.title}
               </h3>
-              <p className="text-slate-500 font-serif italic text-base leading-relaxed mb-8 opacity-70">
+              <p className="text-slate-500 font-serif text-base leading-relaxed mb-8 opacity-70">
                 Detailed interpretation of relevant legislative frameworks to ensure consistency across lower courts...
               </p>
               <div className="flex items-center gap-6">
@@ -59,7 +59,7 @@ export default function SupremeCourt() {
 
         <aside className="lg:col-span-4 space-y-16">
           <div className="bg-stone-50 border border-slate-100 p-12">
-            <h4 className="font-serif text-2xl italic mb-8 text-primary font-bold">{t('navigation')}</h4>
+            <h4 className="font-serif text-2xl mb-8 text-primary font-bold">{t('navigation')}</h4>
             <nav className="flex flex-col gap-6">
               {[
                 'Plenum Structures',
@@ -84,7 +84,7 @@ export default function SupremeCourt() {
           </div>
 
           <div className="p-8 border-l-2 border-primary/10">
-            <p className="font-serif italic text-slate-400 leading-relaxed text-lg">
+            <p className="font-serif text-slate-400 leading-relaxed text-lg">
               "The decisions of the Plenum of the Supreme Court carry a significant weight in ensuring the uniform application of law throughout the judicial system."
             </p>
           </div>
